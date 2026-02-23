@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✨ Baitul Ilmi — Modern Islamic Landing Page
 
-## Getting Started
+<p align="center">
+  <b>Elegant • Modern • Professional Digital Experience</b><br>
+  Landing page modern berbasis Next.js yang menggabungkan nilai keislaman dengan teknologi web masa kini.
+</p>
 
-First, run the development server:
+---
+
+## 🎬 Demo Aplikasi
+
+<p align="center">
+  <a href="https://youtu.be/w7oER45PD7w">
+    <img src="https://img.youtube.com/vi/w7oER45PD7w/maxresdefault.jpg" width="850">
+  </a>
+</p>
+
+<p align="center">
+  Klik gambar di atas untuk melihat video demonstrasi aplikasi.
+</p>
+
+---
+
+## 🖼️ MockUp
+
+<p align="center">
+  <img src="baitulilmi.png" width="850" alt="Preview Baitul Ilmi"/>
+</p>
+
+---
+
+## 🌙 Latar Belakang
+
+Perkembangan teknologi digital mendorong penyampaian informasi dan dakwah Islam untuk hadir dalam bentuk yang lebih modern, interaktif, dan mudah diakses. Website tidak lagi hanya berfungsi sebagai media informasi, tetapi juga sebagai representasi identitas digital yang profesional.
+
+Landing page **Baitul Ilmi** dikembangkan sebagai bentuk implementasi teknologi web modern yang tetap membawa nilai edukasi dan keislaman dalam tampilan yang elegan serta ramah pengguna.
+
+---
+
+## 🎯 Tujuan Pembuatan
+
+Proyek ini dibuat sebagai **tugas Mata Kuliah Pendidikan Agama Islam (PAI) 6**, dengan tujuan:
+
+* Mengintegrasikan nilai keislaman ke dalam media digital modern
+* Menerapkan kemampuan pengembangan web menggunakan framework modern
+* Membuat media informasi berbasis teknologi yang menarik dan profesional
+* Mengembangkan kreativitas mahasiswa dalam menyampaikan pesan edukatif melalui desain digital
+* Memahami bagaimana teknologi dapat menjadi sarana penyebaran ilmu dan kebaikan
+
+---
+
+## 📖 Apa itu Baitul Ilmi?
+
+**Baitul Ilmi** berasal dari bahasa Arab:
+
+* **Baitul (بيت)** : Rumah atau tempat
+* **Ilmi (علم)** : Ilmu atau pengetahuan
+
+Sehingga *Baitul Ilmi* dapat diartikan sebagai **“Rumah Ilmu”**, yaitu sebuah konsep tempat berkumpulnya pengetahuan, pembelajaran, dan pengembangan wawasan.
+
+Dalam konteks proyek ini, Baitul Ilmi diwujudkan sebagai:
+
+* Platform digital edukatif
+* Media penyampaian informasi Islami
+* Representasi ruang belajar modern berbasis teknologi
+* Simbol integrasi antara ilmu pengetahuan dan perkembangan digital
+
+---
+
+## ⚙️ Teknologi yang Digunakan
+
+Proyek ini dibangun menggunakan teknologi modern:
+
+* **Next.js** — Framework React untuk aplikasi web modern
+* **React** — Library antarmuka pengguna
+* **Node.js** — Runtime JavaScript
+* **TypeScript** — Penulisan kode yang lebih terstruktur
+* **Modern CSS** — Desain responsif dan estetis
+* **next/font** — Optimasi performa font
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+Jalankan development server:
 
 ```bash
 npm run dev
-# or
+# atau
 yarn dev
-# or
+# atau
 pnpm dev
-# or
+# atau
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka browser pada alamat:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit halaman utama pada file:
 
-## Learn More
+```
+app/page.tsx
+```
 
-To learn more about Next.js, take a look at the following resources:
+Perubahan akan otomatis diperbarui secara realtime.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Pembuat Program
 
-## Deploy on Vercel
+<p align="center">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<b>Defri Lugas Hidayat</b><br>
+NIM : 312310272<br>
+Program Studi : Teknik Informatika<br>
+Universitas Pelita Bangsa
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</p>
+
+---
+
+## 🎓 Dosen Pengampu
+
+<p align="center">
+
+<b>Ir. M. Zubair Abdurrohman, S.T., M.T.</b>
+
+</p>
+
+---
+
+## 🌐 Live Deployment
+
+<p align="center">
+  🚀 <a href="https://defrilugashidayat17-baitul-ilmi-lan.vercel.app/">
+  <b>Live Demo — Baitul Ilmi</b>
+  </a>
+</p>
+---
+
+## 📚 Referensi
+
+* https://nextjs.org/docs
+* https://nextjs.org/learn
+* https://github.com/vercel/next.js
+
+---
+
+<p align="center">
+  Dibangun dengan semangat belajar, kreativitas, dan integrasi antara ilmu pengetahuan serta teknologi modern ✨
+</p>
