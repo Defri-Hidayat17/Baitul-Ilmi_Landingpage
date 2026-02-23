@@ -153,3 +153,20 @@ Universitas Pelita Bangsa
 <p align="center">
   Dibangun dengan semangat belajar, kreativitas, dan integrasi antara ilmu pengetahuan serta teknologi modern ✨
 </p>
+
+---
+
+## 📜 Hak Cipta
+
+© 2026 **Defri Lugas Hidayat**. Seluruh hak cipta dilindungi.
+
+Proyek ini dibuat untuk keperluan akademik sebagai tugas Mata Kuliah **Pendidikan Agama Islam (PAI) 6** di Universitas Pelita Bangsa.
+
+Dilarang menyalin, mendistribusikan, atau menggunakan sebagian maupun seluruh isi proyek tanpa izin dari pembuat, kecuali untuk tujuan pembelajaran dan referensi akademik.
+
+---
+
+<p align="center">
+  © 2026 Defri Lugas Hidayat — Baitul Ilmi Project
+</p>
+
