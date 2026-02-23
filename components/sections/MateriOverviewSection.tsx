@@ -1,55 +1,52 @@
-// components/sections/MateriOverviewSection.tsx
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image"; // --- DIKEMBALIKAN: Import Image dari next/image ---
 
 const MateriOverviewSection = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isContentOverflowing, setIsContentOverflowing] = useState(false);
+
   const materiList = [
     {
-      id: 1, // Pastikan ID ini cocok dengan nama folder (misal: app/materi/1/page.tsx)
-      title: "Pertemuan 1: Pengantar PAI",
+      id: 1,
+      title: "Pertemuan 1:<br/>Syahadatain",
       description:
-        "Memahami dasar-dasar Pendidikan Agama Islam dan ruang lingkupnya.",
+        "Mengenal makna Syahadatain sebagai fondasi keimanan dan pintu awal perjalanan seorang muslim.",
       icon: "/buku.png",
     },
-    {
-      id: 2, // Pastikan ID ini cocok dengan nama folder (misal: app/materi/2/page.tsx)
-      title: "Pertemuan 2: Aqidah Islamiyah",
-      description:
-        "Mendalami rukun iman sebagai fondasi utama keyakinan seorang Muslim.",
-      icon: "/buku.png", // Anda bisa ganti icon jika ada
-    },
-    {
-      id: 3, // Pastikan ID ini cocok dengan nama folder (misal: app/materi/3/page.tsx)
-      title: "Pertemuan 3: Akhlak Mahmudah",
-      description:
-        "Mempelajari akhlak terpuji dan cara mengaplikasikannya dalam kehidupan.",
-      icon: "/buku.png", // Anda bisa ganti icon jika ada
-    },
-    {
-      id: 4, // Pastikan ID ini cocok dengan nama folder (misal: app/materi/4/page.tsx)
-      title: "Pertemuan 4: Fiqih Ibadah",
-      description:
-        "Memahami tata cara ibadah sesuai syariat Islam (shalat, puasa, zakat, haji).",
-      icon: "/buku.png",
-    },
-    // --- TAMBAHKAN MATERI LAINNYA DI SINI ---
-    // Pastikan ID unik dan cocok dengan nama folder di app/materi/[id]/page.tsx
   ];
 
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      const { scrollWidth, clientWidth } = scrollContainer;
+
+      const overflows = scrollWidth > clientWidth;
+      setIsContentOverflowing(overflows);
+
+      if (overflows) {
+        scrollContainer.scrollLeft = (scrollWidth - clientWidth) / 2;
+      }
+    }
+  }, [materiList.length]);
+
   return (
-    <section id="materi-overview-section" className="bg-white py-16 md:py-24">
+    <section
+      id="materi-overview-section"
+      className="bg-white pt-20 pb-12 md:pt-28 md:pb-16"
+    >
       <div className="container mx-auto px-4">
         <h3
-          className="text-4xl font-bold text-dark-green mb-4 text-center"
+          className="text-4xl font-extrabold text-dark-green mb-4 text-center"
           data-aos="fade-up"
           data-aos-duration="800"
         >
           Materi Tiap Pertemuan
         </h3>
         <p
-          className="text-lg text-text-light mb-12 text-center max-w-2xl mx-auto"
+          className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto"
           data-aos="fade-up"
           data-aos-delay="100"
           data-aos-duration="800"
@@ -58,49 +55,86 @@ const MateriOverviewSection = () => {
           pertemuan.
         </p>
 
-        {/* Grid ini akan menyesuaikan jumlah kolom berdasarkan ukuran layar */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-          {materiList.map((materi) => (
-            <div
-              key={materi.id}
-              className="bg-primary-green p-6 rounded-lg shadow-md text-center flex flex-col items-center justify-between transition-transform transform hover:scale-105 duration-300 w-full max-w-sm"
-              data-aos="zoom-in" // Efek AOS untuk card
-              data-aos-delay={materi.id * 100 + 100} // Menambahkan delay berdasarkan ID untuk efek berurutan
-              data-aos-duration="800"
-            >
-              <Image
-                src={materi.icon}
-                alt={materi.title}
-                width={60}
-                height={60}
-                className="mb-4"
-              />
-              <h4 className="text-xl font-semibold text-dark-green mb-2">
-                {materi.title}
-              </h4>
-              <p className="text-text-light text-sm mb-4">
-                {materi.description}
-              </p>
-              {/* Link ke halaman detail materi yang spesifik */}
-              <Link href={`/materi/${materi.id}`} passHref>
-                <button className="bg-button-green text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-dark-green transition-colors">
-                  Pelajari Lebih Lanjut
-                </button>
-              </Link>
-            </div>
-          ))}
-        </div>
         <div
-          className="text-center mt-12"
-          data-aos="fade-up"
-          data-aos-delay={materiList.length * 100 + 200} // Delay setelah semua card
-          data-aos-duration="800"
+          className={`flex overflow-x-auto snap-x snap-mandatory scroll-smooth custom-scrollbar pb-8 ${
+            !isContentOverflowing ? "justify-center" : ""
+          }`}
+          ref={scrollContainerRef}
         >
-          <Link href="/materi" passHref>
-            <button className="bg-dark-green text-white px-8 py-3 rounded-full font-medium hover:bg-button-green transition-colors">
-              Lihat Semua Materi
-            </button>
-          </Link>
+          <div className="flex gap-8">
+            {materiList.map((materi) => (
+              <div
+                key={materi.id}
+                className="
+                  group
+                  bg-white
+                  rounded-3xl
+                  border border-gray-200
+                  p-6
+                  w-80
+                  flex-shrink-0
+                  snap-start
+                  transition-all duration-300
+                  shadow-lg
+                  border-b-4 border-r-4 border-gray-300
+                  hover:shadow-xl
+                  hover:-translate-y-2
+                  relative
+                  overflow-hidden
+                  flex flex-col
+                "
+                data-aos="zoom-in"
+                data-aos-delay={materi.id * 100 + 100}
+                data-aos-duration="800"
+              >
+                {/* subtle gradient hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-green-50 to-transparent"></div>
+
+                {/* CONTENT */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* --- PERUBAHAN DI SINI: Menambahkan ikon buku di samping badge --- */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <Image
+                      src={materi.icon}
+                      alt="Ikon Buku"
+                      width={20} // Sesuaikan ukuran ikon sesuai keinginan
+                      height={20} // Sesuaikan ukuran ikon sesuai keinginan
+                      className="flex-shrink-0"
+                    />
+                    <span className="text-xs font-semibold text-dark-green bg-green-50 px-3 py-1 rounded-full w-fit">
+                      Pertemuan {materi.id}
+                    </span>
+                  </div>
+
+                  {/* TITLE */}
+                  <h4
+                    className="
+                      text-xl font-bold text-gray-800 leading-snug mb-2
+                      group-hover:text-dark-green transition-colors
+                    "
+                    dangerouslySetInnerHTML={{
+                      __html: materi.title.replace(
+                        "Pertemuan " + materi.id + ":<br/>",
+                        ""
+                      ),
+                    }}
+                  />
+
+                  {/* DESCRIPTION */}
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                    {materi.description}
+                  </p>
+
+                  {/* CTA - Hanya ini yang bisa diklik */}
+                  <Link href={`/materi/${materi.id}`} passHref>
+                    <button className="bg-dark-green text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-button-green transition-colors shadow-md hover:shadow-lg mt-auto w-fit">
+                      Mulai Belajar <span className="ml-1">→</span>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

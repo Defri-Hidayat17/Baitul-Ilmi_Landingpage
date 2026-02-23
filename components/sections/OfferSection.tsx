@@ -107,7 +107,7 @@ const OfferSection = () => {
                   Dari Kitab & Sunnah
                 </p>
                 <Link
-                  href="https://www.nu.or.id/"
+                  href="https://quran.nu.or.id/"
                   target="_blank"
                   rel="noopener noreferrer"
                   passHref
