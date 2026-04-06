@@ -41,24 +41,24 @@ const ReferensiVideoSection = () => {
       youtubeLink: "https://youtu.be/qCddmfYjMpI?si=bFeD6fhL_J0ivHXL",
     },
 
-    // 🔥 TAMBAHAN PERTEMUAN 2
+    // 🔥 PERTEMUAN 2 (Sudah diupdate dengan link dan judul baru)
     {
       id: 4,
       pertemuan: 2,
-      title: "Pengertian dan Kedudukan Shalat dalam Islam",
-      youtubeLink: "https://youtu.be/2z7p4x5kq7A",
+      title: "Kisah Nabi Musa dan Firaun dalam Al-Qur'an",
+      youtubeLink: "https://youtu.be/GH0k-Z90MHk?si=dbTfGViGySjJHhE",
     },
     {
       id: 5,
       pertemuan: 2,
-      title: "Syarat, Rukun, dan Sunnah Shalat",
-      youtubeLink: "https://youtu.be/3vV1Wg3X7sY",
+      title: "Pelajaran dari Kisah Ashabul Kahfi",
+      youtubeLink: "https://youtu.be/sseN1Syn0gQ?si=SNSKTfJUMQqeaXXp",
     },
     {
       id: 6,
       pertemuan: 2,
-      title: "Tata Cara Shalat yang Benar Sesuai Sunnah",
-      youtubeLink: "https://youtu.be/9v8Kx7F2ZpM",
+      title: "Hikmah Kisah-Kisah dalam Al-Qur'an",
+      youtubeLink: "https://youtu.be/K3gX_Ajx7s4?si=vHXLnHCiUOgWnYde",
     },
   ];
 
