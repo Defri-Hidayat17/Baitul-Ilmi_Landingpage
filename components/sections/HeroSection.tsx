@@ -11,7 +11,7 @@ const HeroSection = () => {
   const whiteBgColor = "#FFFFFF"; // Pastikan ini sesuai dengan white-bg Anda
 
   // Anda bisa mengatur persentase ini
-  const whiteStartPercentage = "70%"; // Sesuaikan nilai ini untuk menggeser gradasi
+  const whiteStartPercentage = "60%"; // Sesuaikan nilai ini untuk menggeser gradasi
 
   return (
     <section
@@ -68,7 +68,7 @@ const HeroSection = () => {
           data-aos-duration="1000" // Opsional: Atur durasi animasi
         >
           <Image
-            src="/gambar1.png"
+            src="/gambar.png"
             alt="Quran on Stand"
             width={600}
             height={600}

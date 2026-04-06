@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef, useEffect, useState } from "react"; // Import useRef, useEffect, useState
+import React, { useRef, useEffect, useState } from "react";
 
 const TestimonialsSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -68,9 +68,9 @@ const TestimonialsSection = () => {
       const overflows = scrollWidth > clientWidth;
       setIsContentOverflowing(overflows);
 
-      // Jika konten meluap, geser ke tengah secara default
+      // Jika konten meluap, geser ke awal (kiri) secara default
       if (overflows) {
-        scrollContainer.scrollLeft = (scrollWidth - clientWidth) / 2;
+        scrollContainer.scrollLeft = 0; // Mengatur posisi scroll ke paling kiri
       }
     }
   }, [testimonials.length]); // Dependensi pada jumlah testimoni jika berubah
@@ -105,12 +105,15 @@ const TestimonialsSection = () => {
           }`}
           ref={scrollContainerRef}
         >
-          <div className="flex gap-8">
+          <div className="flex gap-8 px-4 md:px-0">
+            {" "}
+            {/* Menambahkan padding horizontal agar card tidak terlalu mepet */}
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
                 className="
-                  bg-white p-8 rounded-3xl shadow-md text-center // <--- PERUBAHAN DI SINI: rounded-lg menjadi rounded-3xl
+                  group // Menambahkan group untuk hover gradient
+                  bg-white p-8 rounded-3xl shadow-md text-center
                   flex flex-col items-center
                   w-80 flex-shrink-0 snap-start // Penting untuk scroll horizontal
                   transition-all duration-300

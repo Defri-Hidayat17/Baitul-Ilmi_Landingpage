@@ -1,15 +1,19 @@
-// components/Header.tsx
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo Baitul Ilmi dengan ikon Anda */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/logo.png" // Pastikan Anda memiliki logo.png di folder public/
+            src="/logo.png"
             alt="Baitul Ilmi Logo"
             width={30}
             height={30}
@@ -25,7 +29,7 @@ const Header = () => {
           <ul className="flex space-x-8">
             <li>
               <Link
-                href="/#hero-section" // <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL
+                href="/#hero-section"
                 className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
               >
                 Beranda
@@ -33,7 +37,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/#materi-overview-section" // <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL
+                href="/#materi-overview-section"
                 className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
               >
                 Materi
@@ -41,7 +45,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/#referensi-video-section" // <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL
+                href="/#referensi-video-section"
                 className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
               >
                 Referensi Video
@@ -49,10 +53,20 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/#about-section" // <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL
+                href="/#about-section"
                 className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
               >
                 Tentang
+              </Link>
+            </li>
+
+            {/* 🔥 TAMBAHAN BIODATA */}
+            <li>
+              <Link
+                href="/#footer-section"
+                className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
+              >
+                Biodata
               </Link>
             </li>
           </ul>
@@ -60,7 +74,7 @@ const Header = () => {
 
         {/* Ikon dan Tombol Aksi */}
         <div className="flex items-center space-x-4">
-          {/* Ikon Pencarian (Contoh, bisa ditambahkan fungsionalitasnya nanti) */}
+          {/* Ikon Pencarian */}
           <button className="text-text-light hover:text-dark-green p-2 rounded-full hover:bg-primary-green transition-colors duration-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +92,11 @@ const Header = () => {
             </svg>
           </button>
 
-          {/* Ikon Menu (untuk mobile - perlu implementasi menu dropdown/sidebar terpisah) */}
-          <button className="md:hidden text-text-light hover:text-dark-green p-2 rounded-full hover:bg-primary-green transition-colors duration-200">
+          {/* Ikon Menu (Mobile) */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-text-light hover:text-dark-green p-2 rounded-full hover:bg-primary-green transition-colors duration-200"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -87,25 +104,99 @@ const Header = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
+              {menuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              )}
             </svg>
           </button>
 
           {/* Tombol "Mulai Belajar" */}
-          <Link href="/#materi-overview-section" passHref>
-            {" "}
-            {/* <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL */}
+          <Link href="/#materi-overview-section">
             <button className="bg-button-green text-white px-5 py-2 rounded-full font-medium hover:bg-dark-green transition-colors duration-200 hidden md:block">
               Mulai Belajar
             </button>
           </Link>
         </div>
       </div>
+
+      {/* 🔥 MOBILE MENU */}
+      {menuOpen && (
+        <div className="md:hidden bg-white shadow-md px-4 pb-4">
+          <ul className="flex flex-col space-y-4 mt-2">
+            <li>
+              <Link
+                href="/#hero-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Beranda
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/#materi-overview-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Materi
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/#referensi-video-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Referensi Video
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/#about-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Tentang
+              </Link>
+            </li>
+
+            {/* 🔥 BIODATA MOBILE */}
+            <li>
+              <Link
+                href="/#footer-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Biodata
+              </Link>
+            </li>
+
+            {/* Button mobile */}
+            <li>
+              <Link href="/#materi-overview-section">
+                <button className="w-full bg-button-green text-white py-2 rounded-full">
+                  Mulai Belajar
+                </button>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

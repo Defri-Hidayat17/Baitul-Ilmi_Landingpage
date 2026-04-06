@@ -67,7 +67,7 @@ const ReferensiVideoSection = () => {
       />
       <div
         className="absolute inset-0 bg-repeat opacity-5"
-        style={{ backgroundImage: "url('/mosque-pattern.svg')" }}
+        style={{ backgroundImage: "url('/madinah.png')" }}
       ></div>
 
       <div className="container mx-auto px-4 relative z-10 text-center">

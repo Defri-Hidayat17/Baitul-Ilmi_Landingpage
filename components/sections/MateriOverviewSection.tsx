@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React, { useRef, useEffect, useState } from "react";
-import Image from "next/image"; // --- DIKEMBALIKAN: Import Image dari next/image ---
+import Image from "next/image";
 
 const MateriOverviewSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -16,6 +16,21 @@ const MateriOverviewSection = () => {
         "Mengenal makna Syahadatain sebagai fondasi keimanan dan pintu awal perjalanan seorang muslim.",
       icon: "/buku.png",
     },
+    {
+      id: 2,
+      title: "Pertemuan 2:<br/>Kisah dalam Al-Qur’an",
+      description:
+        "Menyelami hikmah dan pelajaran mendalam dari kisah-kisah para nabi dan umat terdahulu dalam Al-Qur’an.",
+      icon: "/buku.png",
+    },
+    // Anda bisa menambahkan materi lain di sini
+    // {
+    //   id: 3,
+    //   title: "Pertemuan 3:<br/>Judul Materi 3",
+    //   description:
+    //     "Deskripsi singkat materi ketiga.",
+    //   icon: "/buku.png",
+    // },
   ];
 
   useEffect(() => {
@@ -26,11 +41,14 @@ const MateriOverviewSection = () => {
       const overflows = scrollWidth > clientWidth;
       setIsContentOverflowing(overflows);
 
+      // Scroll ke tengah hanya jika ada overflow, agar item pertama terlihat jelas
       if (overflows) {
-        scrollContainer.scrollLeft = (scrollWidth - clientWidth) / 2;
+        // Menyesuaikan agar scroll dimulai sedikit ke kiri dari tengah untuk item pertama
+        // atau bisa juga disesuaikan agar item pertama selalu di view
+        scrollContainer.scrollLeft = 0; // Mulai dari awal agar item pertama terlihat
       }
     }
-  }, [materiList.length]);
+  }, [materiList.length]); // Dependensi materiList.length agar efek berjalan saat daftar berubah
 
   return (
     <section
@@ -52,7 +70,7 @@ const MateriOverviewSection = () => {
           data-aos-duration="800"
         >
           Jelajahi materi Pendidikan Agama Islam kami yang terstruktur per
-          pertemuan.
+          pertemuan untuk memperkaya pemahaman Anda.
         </p>
 
         <div
@@ -61,7 +79,9 @@ const MateriOverviewSection = () => {
           }`}
           ref={scrollContainerRef}
         >
-          <div className="flex gap-8">
+          <div className="flex gap-8 px-4 md:px-0">
+            {" "}
+            {/* Menambahkan padding horizontal agar card tidak terlalu mepet */}
             {materiList.map((materi) => (
               <div
                 key={materi.id}
@@ -92,13 +112,12 @@ const MateriOverviewSection = () => {
 
                 {/* CONTENT */}
                 <div className="relative z-10 flex flex-col h-full">
-                  {/* --- PERUBAHAN DI SINI: Menambahkan ikon buku di samping badge --- */}
                   <div className="flex items-center gap-2 mb-4">
                     <Image
                       src={materi.icon}
                       alt="Ikon Buku"
-                      width={20} // Sesuaikan ukuran ikon sesuai keinginan
-                      height={20} // Sesuaikan ukuran ikon sesuai keinginan
+                      width={20}
+                      height={20}
                       className="flex-shrink-0"
                     />
                     <span className="text-xs font-semibold text-dark-green bg-green-50 px-3 py-1 rounded-full w-fit">
@@ -114,7 +133,7 @@ const MateriOverviewSection = () => {
                     "
                     dangerouslySetInnerHTML={{
                       __html: materi.title.replace(
-                        "Pertemuan " + materi.id + ":<br/>",
+                        `Pertemuan ${materi.id}:<br/>`,
                         ""
                       ),
                     }}

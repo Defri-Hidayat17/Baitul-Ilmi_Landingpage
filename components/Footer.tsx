@@ -33,7 +33,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0f2f2a] text-white">
+    <footer id="footer-section" className="bg-[#0f2f2a] text-white">
+      {" "}
       {/* MAIN FOOTER */}
       <div className="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-4">
         {/* ================= LOGO + DESC ================= */}
@@ -140,10 +141,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       {/* ================= DIVIDER ================= */}
       <div className="border-t border-white/10" />
-
       {/* ================= COPYRIGHT ================= */}
       <div className="text-center text-sm text-gray-400 py-6">
         © {new Date().getFullYear()} DefriLugasHidayat|Baitul Ilmi — Platform
