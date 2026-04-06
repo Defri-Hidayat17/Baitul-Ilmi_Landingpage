@@ -27,23 +27,39 @@ const ReferensiVideoSection = () => {
       pertemuan: 1,
       title: "Syahadatain: Rukun Islam Pertama",
       youtubeLink: "https://youtu.be/JS3N6WMik7Q?si=IBHpzl4JQcPyQBl-",
-      // Deskripsi dihapus
     },
     {
       id: 2,
       pertemuan: 1,
       title: "Memahami Makna Syahadat",
       youtubeLink: "https://youtu.be/vARtTdZMAbo?si=cFH-PyKf7gZ5TzDz",
-      // Deskripsi dihapus
     },
     {
       id: 3,
       pertemuan: 1,
       title: "Keutamaan Syahadat",
       youtubeLink: "https://youtu.be/qCddmfYjMpI?si=bFeD6fhL_J0ivHXL",
-      // Deskripsi dihapus
     },
-    // Anda bisa menambahkan video untuk pertemuan lain di sini
+
+    // 🔥 TAMBAHAN PERTEMUAN 2
+    {
+      id: 4,
+      pertemuan: 2,
+      title: "Pengertian dan Kedudukan Shalat dalam Islam",
+      youtubeLink: "https://youtu.be/2z7p4x5kq7A",
+    },
+    {
+      id: 5,
+      pertemuan: 2,
+      title: "Syarat, Rukun, dan Sunnah Shalat",
+      youtubeLink: "https://youtu.be/3vV1Wg3X7sY",
+    },
+    {
+      id: 6,
+      pertemuan: 2,
+      title: "Tata Cara Shalat yang Benar Sesuai Sunnah",
+      youtubeLink: "https://youtu.be/9v8Kx7F2ZpM",
+    },
   ];
 
   return (
@@ -106,16 +122,14 @@ const ReferensiVideoSection = () => {
                   hover:shadow-xl hover:-translate-y-2
                   transition-all duration-300
                   relative overflow-hidden
-                  flex flex-col // Tetap flex-col untuk struktur internal
+                  flex flex-col
                 "
                 data-aos="zoom-in"
                 data-aos-delay={video.id * 100 + 100}
                 data-aos-duration="800"
               >
-                {/* subtle gradient hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-green-50 to-transparent"></div>
 
-                {/* Thumbnail yang bisa diklik */}
                 <Link
                   href={video.youtubeLink}
                   target="_blank"
@@ -147,21 +161,16 @@ const ReferensiVideoSection = () => {
                 </Link>
 
                 <div className="p-4 text-left relative z-10 flex flex-col">
-                  {" "}
-                  {/* flex-grow dihapus dari sini */}
-                  {/* Badge Pertemuan */}
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-xs font-semibold text-dark-green bg-green-50 px-3 py-1 rounded-full w-fit">
                       Pertemuan {video.pertemuan}
                     </span>
                   </div>
-                  {/* TITLE */}
+
                   <h4 className="text-xl font-bold text-gray-800 leading-snug mb-4 group-hover:text-dark-green transition-colors">
-                    {" "}
-                    {/* Margin bottom disesuaikan */}
                     {video.title}
                   </h4>
-                  {/* Tombol "Tonton Sekarang" */}
+
                   <Link
                     href={video.youtubeLink}
                     target="_blank"
