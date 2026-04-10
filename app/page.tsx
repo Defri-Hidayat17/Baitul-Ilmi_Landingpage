@@ -7,21 +7,24 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
 import OfferSection from "@/components/sections/OfferSection";
-import MateriOverviewSection from "@/components/sections/MateriOverviewSection"; // Section baru
-import TestimonialsSection from "@/components/sections/TestimonialsSection"; // Dipindahkan
-import ReferensiVideoSection from "@/components/sections/ReferensiVideoSection"; // Menggantikan DownloadApp
+import MateriOverviewSection from "@/components/sections/MateriOverviewSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import ReferensiVideoSection from "@/components/sections/ReferensiVideoSection";
 import SupportSection from "@/components/sections/SupportSection";
 import AboutSection from "@/components/sections/AboutSection";
+import BiodataSection from "@/components/sections/biodata"; // Import BiodataSection
 
 // Komponen untuk animasi muncul (fade-in dan slide-up)
 const AnimatedSection = ({
   children,
   delay = 0,
   className = "",
+  id = "", // Tambahkan prop id
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  id?: string; // Tambahkan prop id
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -59,6 +62,7 @@ const AnimatedSection = ({
   return (
     <div
       ref={ref}
+      id={id} // Gunakan prop id di sini
       className={`${className} transition-all duration-500 ease-out ${
         // Durasi animasi 500ms
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -87,16 +91,15 @@ export default function Home() {
       </AnimatedSection>
 
       <AnimatedSection delay={300}>
-        <MateriOverviewSection />{" "}
-        {/* Section baru: Kartu Materi Tiap Pertemuan */}
+        <MateriOverviewSection />
       </AnimatedSection>
 
       <AnimatedSection delay={400}>
-        <TestimonialsSection /> {/* Dipindahkan ke atas Referensi Video */}
+        <TestimonialsSection />
       </AnimatedSection>
 
       <AnimatedSection delay={500}>
-        <ReferensiVideoSection /> {/* Menggantikan DownloadAppSection */}
+        <ReferensiVideoSection />
       </AnimatedSection>
 
       <AnimatedSection delay={600}>
@@ -106,6 +109,16 @@ export default function Home() {
       <AnimatedSection delay={700}>
         <AboutSection />
       </AnimatedSection>
+
+      {/* 🔥 BIODATA SECTION BARU, DIATAS FOOTER (jika footer ada di layout atau di bawah ini) */}
+      <AnimatedSection delay={800} id="biodata-section">
+        {" "}
+        {/* Tambahkan ID di sini */}
+        <BiodataSection />
+      </AnimatedSection>
+
+      {/* Jika Anda memiliki komponen Footer, letakkan di sini setelah BiodataSection */}
+      {/* <Footer /> */}
     </>
   );
 }

@@ -1,3 +1,4 @@
+// components/Header.tsx
 "use client";
 
 import Link from "next/link";
@@ -60,10 +61,10 @@ const Header = () => {
               </Link>
             </li>
 
-            {/* 🔥 TAMBAHAN BIODATA */}
+            {/* 🔥 BIODATA - LINK DIUBAH KE ANCHOR ID */}
             <li>
               <Link
-                href="/#footer-section"
+                href="/#biodata-section" // Mengarah ke ID di page.tsx
                 className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
               >
                 Biodata
@@ -175,10 +176,10 @@ const Header = () => {
               </Link>
             </li>
 
-            {/* 🔥 BIODATA MOBILE */}
+            {/* 🔥 BIODATA MOBILE - LINK DIUBAH KE ANCHOR ID */}
             <li>
               <Link
-                href="/#footer-section"
+                href="/#biodata-section" // Mengarah ke ID di page.tsx
                 onClick={() => setMenuOpen(false)}
                 className="block text-text-light hover:text-dark-green"
               >
