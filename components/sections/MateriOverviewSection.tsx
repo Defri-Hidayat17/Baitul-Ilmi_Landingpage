@@ -23,6 +23,12 @@ const MateriOverviewSection = () => {
         "Menyelami hikmah dan pelajaran mendalam dari kisah-kisah para nabi dan umat terdahulu dalam Al-Qur’an.",
       icon: "/buku.png",
     },
+    {
+      id: 3,
+      title: "Pertemuan 3:<br/>UTS",
+      description: "Hakikat manusia dalam konteks agama.",
+      icon: "/buku.png",
+    },
     // Anda bisa menambahkan materi lain di sini
     // {
     //   id: 3,

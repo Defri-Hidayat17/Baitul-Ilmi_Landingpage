@@ -60,6 +60,24 @@ const ReferensiVideoSection = () => {
       title: "Hikmah Kisah-Kisah dalam Al-Qur'an",
       youtubeLink: "https://youtu.be/K3gX_Ajx7s4?si=vHXLnHCiUOgWnYde",
     },
+    {
+      id: 7,
+      pertemuan: 3,
+      title: "Hakikat manusia dalam pandangan islam",
+      youtubeLink: "https://youtu.be/oSUHNfl8H84?si=_YpGowpjpwFuz-Fs",
+    },
+    {
+      id: 8,
+      pertemuan: 3,
+      title: "Hakikat kehidupan manusia",
+      youtubeLink: "https://youtu.be/kccHXCDZGOk?si=MT4Hqjm3CUAZ4N5_",
+    },
+    {
+      id: 9,
+      pertemuan: 3,
+      title: "Hakikat manusia dalam pandangan filsafat pendidikan islam",
+      youtubeLink: "https://youtu.be/XrN_IufUgaE?si=OCV2Pys0-vb4Au2c",
+    },
   ];
 
   return (
