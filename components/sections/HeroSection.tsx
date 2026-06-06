@@ -1,17 +1,37 @@
 // components/sections/HeroSection.tsx
 "use client";
 
-import Image from "next/image";
+import Image from "next/image"; // Tetap import jika masih ada Image lain di komponen ini
 import Link from "next/link";
+import React, { useState, useEffect } from "react"; // Import useState dan useEffect
 
 const HeroSection = () => {
   // Ganti dengan kode warna hex asli Anda dari tailwind.config.js
-  // Saya menggunakan nilai yang Anda berikan di pesan sebelumnya
   const primaryGreenColor = "#E8F5E9"; // Pastikan ini sesuai dengan primary-green Anda
   const whiteBgColor = "#FFFFFF"; // Pastikan ini sesuai dengan white-bg Anda
 
   // Anda bisa mengatur persentase ini
   const whiteStartPercentage = "60%"; // Sesuaikan nilai ini untuk menggeser gradasi
+
+  // --- START: Logika Slide Gambar, PERSIS SAMA DENGAN ABOUTSECTION ---
+  const imageUrls = [
+    "/about1.png", // Menggunakan gambar yang sama dengan AboutSection
+    "/about2.png",
+    "/about3.png",
+    "/about4.png",
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  // Ganti gambar tiap 4 detik (smooth natural)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % imageUrls.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [imageUrls.length]); // Tambahkan imageUrls.length sebagai dependency
+  // --- END: Logika Slide Gambar ---
 
   return (
     <section
@@ -26,8 +46,8 @@ const HeroSection = () => {
         {/* Left Content - Teks Baitul Ilmi */}
         <div
           className="md:w-1/2 text-center md:text-left mb-12 md:mb-0 pr-0 md:pr-8 md:pl-8"
-          data-aos="fade-right" // <--- TAMBAHKAN data-aos
-          data-aos-duration="1000" // Opsional: Atur durasi animasi
+          data-aos="fade-right"
+          data-aos-duration="1000"
         >
           <h1 className="text-5xl md:text-6xl font-extrabold text-dark-green mb-2 leading-tight">
             Baitul Ilmi
@@ -43,8 +63,6 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
             {/* Tombol 1: Mulai Jelajahi Materi (Solid Green) */}
             <Link href="/#materi-overview-section" passHref>
-              {" "}
-              {/* <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL */}
               <button className="bg-button-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-dark-green transition-colors duration-200 shadow-lg">
                 Mulai Jelajahi Materi
               </button>
@@ -52,8 +70,6 @@ const HeroSection = () => {
 
             {/* Tombol 2: Video Referensi (Stroke/Border) */}
             <Link href="/#referensi-video-section" passHref>
-              {" "}
-              {/* <--- DIUBAH UNTUK NAVIGASI YANG LEBIH STABIL */}
               <button className="bg-transparent text-dark-green border border-dark-green px-8 py-3 rounded-full text-lg font-semibold hover:bg-dark-green hover:text-white transition-colors duration-200 shadow-lg">
                 Video Referensi
               </button>
@@ -61,18 +77,28 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Image - Quran Stand (gambar1.png Anda) */}
+        {/* Right Image Slider - MENGGANTIKAN gambar.png DENGAN SLIDE DARI ABOUTSECTION */}
         <div
-          className="md:w-1/2 flex justify-center md:justify-end"
-          data-aos="fade-left" // <--- TAMBAHKAN data-aos
-          data-aos-duration="1000" // Opsional: Atur durasi animasi
+          className="md:w-1/2 flex justify-center md:justify-end relative w-full h-[420px]" // Tinggi disesuaikan dengan AboutSection
+          data-aos="fade-left"
+          data-aos-duration="1000"
         >
-          <Image
-            src="/gambar.png"
-            alt="Quran on Stand"
-            width={600}
-            height={600}
-          />
+          {/* FRAME GRADASI PERSIS DENGAN ABOUTSECTION */}
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-700 via-gray-300 to-yellow-500 p-[3px] shadow-2xl">
+            <div className="relative w-full h-full overflow-hidden rounded-2xl">
+              {imageUrls.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`Ilustrasi Baitul Ilmi ${i + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover
+                    transition-opacity duration-[1800ms] ease-in-out
+                    ${i === index ? "opacity-100" : "opacity-0"}
+                  `}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

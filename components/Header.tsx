@@ -44,6 +44,15 @@ const Header = () => {
                 Materi
               </Link>
             </li>
+            {/* 🔥 PENAMBAHAN LINK POSTER UNTUK DESKTOP */}
+            <li>
+              <Link
+                href="/#poster-section"
+                className="text-text-light hover:text-dark-green font-medium transition-colors duration-200"
+              >
+                Poster
+              </Link>
+            </li>
             <li>
               <Link
                 href="/#referensi-video-section"
@@ -153,6 +162,17 @@ const Header = () => {
                 className="block text-text-light hover:text-dark-green"
               >
                 Materi
+              </Link>
+            </li>
+
+            {/* 🔥 PENAMBAHAN LINK POSTER UNTUK MOBILE */}
+            <li>
+              <Link
+                href="/#poster-section"
+                onClick={() => setMenuOpen(false)}
+                className="block text-text-light hover:text-dark-green"
+              >
+                Poster
               </Link>
             </li>
 

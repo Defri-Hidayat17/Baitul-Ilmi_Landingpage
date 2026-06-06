@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react"; // Diperbarui: Menambahkan useState
 
 // Helper function untuk mendapatkan ID video YouTube dari URL
 const getYouTubeVideoId = (url: string): string | null => {
@@ -80,6 +80,17 @@ const ReferensiVideoSection = () => {
     },
   ];
 
+  // Diperbarui: Menambahkan state untuk pertemuan aktif dan logika filtering
+  const [activePertemuan, setActivePertemuan] = useState(1);
+
+  const pertemuanList = [...new Set(videos.map((v) => v.pertemuan))].sort(
+    (a, b) => a - b
+  ); // Menambahkan sort untuk memastikan urutan tombol
+
+  const filteredVideos = videos.filter(
+    (video) => video.pertemuan === activePertemuan
+  );
+
   return (
     <section
       id="referensi-video-section"
@@ -121,8 +132,39 @@ const ReferensiVideoSection = () => {
           (Belajar Lebih Mudah dengan Visual Interaktif)
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video) => {
+        {/* Diperbarui: Bagian ini menggantikan blok div grid sebelumnya */}
+        {/* Tab Pertemuan */}
+        <div
+          className="flex justify-center mb-12"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <div className="bg-green-50 p-2 rounded-2xl inline-flex flex-wrap gap-2 shadow-sm">
+            {pertemuanList.map((pertemuan) => (
+              <button
+                key={pertemuan}
+                onClick={() => setActivePertemuan(pertemuan)}
+                className={`
+                  px-5 py-2 rounded-xl font-medium transition-all duration-300
+                  ${
+                    activePertemuan === pertemuan
+                      ? "bg-dark-green text-white shadow-md"
+                      : "text-dark-green hover:bg-white"
+                  }
+                `}
+              >
+                Pertemuan {pertemuan}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Video Grid */}
+        <div
+          key={activePertemuan} // Key ditambahkan untuk re-render saat pertemuan berubah
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredVideos.map((video) => {
             const videoId = getYouTubeVideoId(video.youtubeLink);
             const thumbnailUrl = getYouTubeThumbnail(videoId);
 
@@ -143,7 +185,6 @@ const ReferensiVideoSection = () => {
                   flex flex-col
                 "
                 data-aos="zoom-in"
-                data-aos-delay={video.id * 100 + 100}
                 data-aos-duration="800"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-green-50 to-transparent"></div>
@@ -158,11 +199,11 @@ const ReferensiVideoSection = () => {
                     <Image
                       src={thumbnailUrl}
                       alt={video.title}
-                      layout="fill"
-                      objectFit="cover"
-                      className="transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300">
+
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all duration-300">
                       <svg
                         className="w-16 h-16 text-white"
                         fill="currentColor"
@@ -178,12 +219,10 @@ const ReferensiVideoSection = () => {
                   </div>
                 </Link>
 
-                <div className="p-4 text-left relative z-10 flex flex-col">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-semibold text-dark-green bg-green-50 px-3 py-1 rounded-full w-fit">
-                      Pertemuan {video.pertemuan}
-                    </span>
-                  </div>
+                <div className="p-4 text-left relative z-10 flex flex-col flex-grow">
+                  <span className="text-xs font-semibold text-dark-green bg-green-50 px-3 py-1 rounded-full w-fit mb-3">
+                    Pertemuan {video.pertemuan}
+                  </span>
 
                   <h4 className="text-xl font-bold text-gray-800 leading-snug mb-4 group-hover:text-dark-green transition-colors">
                     {video.title}
@@ -195,17 +234,19 @@ const ReferensiVideoSection = () => {
                     rel="noopener noreferrer"
                     className="
                       bg-dark-green text-white px-5 py-2 rounded-full text-sm font-semibold
-                      hover:bg-button-green transition-colors shadow-md hover:shadow-lg mt-auto w-fit
-                      inline-flex items-center justify-center
+                      hover:bg-button-green transition-colors shadow-md hover:shadow-lg
+                      mt-auto w-fit inline-flex items-center justify-center
                     "
                   >
-                    Tonton Sekarang <span className="ml-1">→</span>
+                    Tonton Sekarang
+                    <span className="ml-2">→</span>
                   </Link>
                 </div>
               </div>
             );
           })}
         </div>
+        {/* Akhir dari bagian yang diperbarui */}
 
         <div
           className="text-center mt-12"

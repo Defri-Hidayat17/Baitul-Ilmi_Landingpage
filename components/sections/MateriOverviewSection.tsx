@@ -18,25 +18,81 @@ const MateriOverviewSection = () => {
     },
     {
       id: 2,
-      title: "Pertemuan 2:<br/>Kisah dalam Al-Qur’an",
+      title: "Pertemuan 2:<br/>Konsep Manusia",
+      description: "Manusia sebagai hamba Allah dan khalifah di bumi.",
+      icon: "/buku.png",
+    },
+    {
+      id: 3,
+      title: "Pertemuan 3:<br/>Paradigma Qur'ani",
+      description: "Al-Qur'an sebagai pedoman berpikir dan bertindak.",
+      icon: "/buku.png",
+    },
+    {
+      id: 4,
+      title: "Pertemuan 4:<br/>Kisah dalam Al-Qur’an",
       description:
         "Menyelami hikmah dan pelajaran mendalam dari kisah-kisah para nabi dan umat terdahulu dalam Al-Qur’an.",
       icon: "/buku.png",
     },
     {
-      id: 3,
-      title: "Pertemuan 3:<br/>UTS",
-      description: "Hakikat manusia dalam konteks agama.",
+      id: 5,
+      title: "Pertemuan 5:<br/>Ghozwatul Fikri",
+      description: "Mengenali dan menangkal infiltrasi pemikiran yang merusak.",
       icon: "/buku.png",
     },
-    // Anda bisa menambahkan materi lain di sini
-    // {
-    //   id: 3,
-    //   title: "Pertemuan 3:<br/>Judul Materi 3",
-    //   description:
-    //     "Deskripsi singkat materi ketiga.",
-    //   icon: "/buku.png",
-    // },
+    {
+      id: 6,
+      title: "Pertemuan 6:<br/>Syaithan & Iblis",
+      description: "Memahami tipu daya setan dan cara menghindarinya.",
+      icon: "/buku.png",
+    },
+    {
+      id: 7,
+      title: "Pertemuan 7:<br/>Fiqih Dakwah",
+      description: "Metode dakwah yang bijak dan penuh keteladanan.",
+      icon: "/buku.png",
+    },
+    {
+      id: 8,
+      title: "Pertemuan 8:<br/>Masyarakat Madani",
+      description:
+        "Memahami konsep masyarakat yang beradab, adil, dan toleran berdasarkan Piagam Madinah.",
+      icon: "/buku.png",
+    },
+    {
+      id: 9,
+      title: "Pertemuan 9:<br/>Kemungkaran Umat",
+      description: "Memahami cara mencegah dan mengatasi kemungkaran.",
+      icon: "/buku.png",
+    },
+    {
+      id: 10,
+      title: "Pertemuan 10:<br/>Adab Safar & Makan",
+      description: "Memahami adab perjalanan dan etika makan dalam Islam.",
+      icon: "/buku.png",
+    },
+    {
+      id: 11,
+      title: "Pertemuan 11:<br/>Adab Berpakaian",
+      description:
+        "Kajian komprehensif tentang tata busana syar'i dalam Islam.",
+      icon: "/buku.png",
+    },
+    {
+      id: 12,
+      title: "Pertemuan 12:<br/>Manajemen Kematian 1",
+      description:
+        "Kajian tentang kesadaran eksistensial terhadap akhir kehidupan dunia.",
+      icon: "/buku.png",
+    },
+    {
+      id: 13,
+      title: "Pertemuan 13:<br/>Manajemen Kematian 2",
+      description:
+        "Kajian aplikatif dan legal-formal tentang tata laksana fikih jenazah.",
+      icon: "/buku.png",
+    },
   ];
 
   useEffect(() => {

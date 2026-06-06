@@ -1,5 +1,5 @@
 // app/page.tsx
-"use client"; // Tetap sebagai Client Component karena menggunakan hooks dan AnimatedSection
+"use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
@@ -12,7 +12,8 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ReferensiVideoSection from "@/components/sections/ReferensiVideoSection";
 import SupportSection from "@/components/sections/SupportSection";
 import AboutSection from "@/components/sections/AboutSection";
-import BiodataSection from "@/components/sections/biodata"; // Import BiodataSection
+import BiodataSection from "@/components/sections/biodata";
+import PosterSection from "@/components/sections/PosterSection"; // 🔥 PERUBAHAN DI SINI
 
 // Komponen untuk animasi muncul (fade-in dan slide-up)
 const AnimatedSection = ({
@@ -94,26 +95,31 @@ export default function Home() {
         <MateriOverviewSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={400}>
+      {/* 🔥 PENAMBAHAN POSTER SECTION */}
+      <AnimatedSection delay={400} id="poster-section">
+        <PosterSection />
+      </AnimatedSection>
+
+      {/* Sesuaikan delay untuk section berikutnya */}
+      <AnimatedSection delay={500}>
         <TestimonialsSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={500}>
+      <AnimatedSection delay={600}>
         <ReferensiVideoSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={600}>
+      <AnimatedSection delay={700}>
         <SupportSection />
       </AnimatedSection>
 
-      <AnimatedSection delay={700}>
+      <AnimatedSection delay={800}>
         <AboutSection />
       </AnimatedSection>
 
       {/* 🔥 BIODATA SECTION BARU, DIATAS FOOTER (jika footer ada di layout atau di bawah ini) */}
-      <AnimatedSection delay={800} id="biodata-section">
-        {" "}
-        {/* Tambahkan ID di sini */}
+      {/* Sesuaikan delay untuk section berikutnya */}
+      <AnimatedSection delay={900} id="biodata-section">
         <BiodataSection />
       </AnimatedSection>
 
