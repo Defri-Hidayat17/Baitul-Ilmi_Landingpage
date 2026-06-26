@@ -93,6 +93,13 @@ const MateriOverviewSection = () => {
         "Kajian aplikatif dan legal-formal tentang tata laksana fikih jenazah.",
       icon: "/buku.png",
     },
+    {
+      id: 16,
+      title: "Pertemuan 16:<br/>Karya Tulis Ilmiah",
+      description:
+        "Menyikapi masyarakat yang tidak sesuai dengan nilai moral agama",
+      icon: "/buku.png",
+    },
   ];
 
   useEffect(() => {
